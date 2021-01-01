@@ -155,6 +155,20 @@ public class ShareScreen : MonoBehaviour
 }
 ```
 
+### Testing Notes
+
+ - The ScreenSharing Application will turn off the local webcam when the sharing starts.
+ - The current SDK does not allow both ScreenSharing and webcam streaming on the same device at the same time.
+ - Do not use the same ScreenSharing Application as the second client to view the shared content in the above example.  Instead, a regular client should be used as a viewer.
+ - One convenient viewer app is the [Web demo](https://webdemo.agora.io/agora-web-showcase/examples/Agora-Web-Tutorial-1to1-Web/).  Or you may use the demo app from the Unity SDK as the viewer.
+
+The following screen shots compare the App ScreenSharing and Desktop ScreenSharing using the Advanced Unity Demo App (linked at the end).
+
+|  | Sharer |Viewer|
+|--|--|--
+| App | ![Screen Shot 2020-12-31 at 6 05 15 PM](https://user-images.githubusercontent.com/1261195/103432435-89da6880-4b93-11eb-9a29-ded91bed277e.png) |<img width="1182" alt="Basic_Communication_🔊" src="https://user-images.githubusercontent.com/1261195/103432434-88a93b80-4b93-11eb-9a72-fd8e8818de62.png">|
+|Desktop|![Screen Shot 2020-12-31 at 6 07 20 PM](https://user-images.githubusercontent.com/1261195/103432433-88a93b80-4b93-11eb-98de-4ac31a63b18b.png)|<img width="1227" alt="Basic_Communication_2" src="https://user-images.githubusercontent.com/1261195/103432431-86df7800-4b93-11eb-99aa-e2390a77a5df.png">|
+
 ### API reference
 
 - [SetExternalVideoSource](https://docs.agora.io/en/Video/API%20Reference/unity/classagora__gaming__rtc_1_1_i_rtc_engine.html#aae4a31d2375ed620605360ae1199eee8)
