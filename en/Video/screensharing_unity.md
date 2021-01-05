@@ -43,7 +43,7 @@ mRtcEngine.SetExternalVideoSource(true, false);
 
    ```C#
 mRect = new Rect(0, 0, Screen.width, Screen.height);
-mTexture = new Texture2D((int)mRect.width, (int)mRect.height, TextureFormat.GRBA32, false);
+mTexture = new Texture2D((int)mRect.width, (int)mRect.height, TextureFormat.RGBA32, false);
 mTexture.ReadPixels(mRect, 0, 0);
 mTexture.Apply();
 	 ```
@@ -103,7 +103,7 @@ public class ShareScreen : MonoBehaviour
        // Creates a rectangular region of the screen.
        mRect = new Rect(0, 0, Screen.width, Screen.height);
        // Creates a texture of the rectangle you create.
-       mTexture = new Texture2D((int)mRect.width, (int)mRect.height, TextureFormat.GRBA32, false);
+       mTexture = new Texture2D((int)mRect.width, (int)mRect.height, TextureFormat.RGBA32, false);
    }
 
    void Update()
@@ -132,7 +132,7 @@ public class ShareScreen : MonoBehaviour
            // Sets the buffer type of the video frame.
            externalVideoFrame.type = ExternalVideoFrame.VIDEO_BUFFER_TYPE.VIDEO_BUFFER_RAW_DATA;
            // Sets the format of the video pixel.
-           externalVideoFrame.format = ExternalVideoFrame.VIDEO_PIXEL_FORMAT.VIDEO_PIXEL_GRBA;
+           externalVideoFrame.format = ExternalVideoFrame.VIDEO_PIXEL_FORMAT.VIDEO_PIXEL_RGBA;
            // Applies the raw data.
            externalVideoFrame.buffer = bytes;
            // Sets the width (pixel) of the video frame.
