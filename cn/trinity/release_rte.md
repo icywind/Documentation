@@ -3,7 +3,7 @@
 title: 发版说明
 description: 
 platform: All Platforms
-updatedAt: Thu Apr 29 2021 12:27:23 GMT+0800 (CST)
+updatedAt: Thu Apr 29 2021 12:29:33 GMT+0800 (CST)
 ---
 # 发版说明
 本页提供 Agora 下一代 RTC SDK 的发版说明。
@@ -66,7 +66,7 @@ updatedAt: Thu Apr 29 2021 12:27:23 GMT+0800 (CST)
 
 **4. 设置日志文件**
 
-为保证日志内容的完整性，该版本在 `RtcEngineContext` 中新增 `logConfig` 成员变量，在你初始化 `RtcEngine` 时可用于设置 Agora SDK 输出的日志文件。‘
+为保证日志内容的完整性，该版本在 `RtcEngineContext` 中新增 `logConfig` 成员变量，在你初始化 `RtcEngine` 时可用于设置 Agora SDK 输出的日志文件。
 
 自该版本起，Agora 不推荐使用 `setLogFile`、`setLogFileSize`、`setLogFilter`、`setLogLevel` 方法设置日志文件。
 
@@ -74,7 +74,7 @@ updatedAt: Thu Apr 29 2021 12:27:23 GMT+0800 (CST)
 
 该版本新增 `enableEncryption` 方法，用于对频道内媒体流进行国密 SM4 加密。加解密失败时，Agora SDK 会触发 `onEncryptionError` 回调。
 
-**6. 删除指定事件句柄 (Android)**
+**6. 删除指定事件句柄（Android）**
 
 在特定场景下，开发者不想再接收某些事件的回调。该版本新增 `removeHandler` 方法，你可以调用该方法删除不再需要的事件句柄。
 
@@ -86,11 +86,11 @@ updatedAt: Thu Apr 29 2021 12:27:23 GMT+0800 (CST)
 
 该版本新增 `adjustUserPlaybackSignalVolume` 方法，用以调节本地用户听到的指定远端用户的音量。通话或直播过程中，你可以多次调用该方法，来调节多个远端用户在本地播放的音量，或对某个远端用户在本地播放的音量调节多次。
 
-**9. 视频采集旋转 (Windows)**
+**9. 视频采集旋转（Windows）**
 
 该版本新增 `setCameraDeviceOrientation` 方法，支持你在用户设备不带重力感应功能时，手动调整采集到的视频画面的旋转角度。
 
-**10. 多设备采集 (Windows)**
+**10. 多设备采集（Windows）**
 
 为满足用户对使用多摄像头、多屏幕采集发送视频的需求，该版本新增如下方法：
 
@@ -99,7 +99,7 @@ updatedAt: Thu Apr 29 2021 12:27:23 GMT+0800 (CST)
 - `startPrimaryScreenCapture`: 开始采集共享第一个屏幕。
 - `startSecondaryScreenCapture`: 开始采集共享第二个屏幕。
 
-**11. 设备权限出错回调 (Android/iOS)**
+**11. 设备权限出错回调（Android/iOS）**
 
 自该版本起，Agora SDK 新增 `onPermissionError` 回调，及时向用户报告应用无法获取设备权限。用户可以通过 `permissionType` 参数了解应用受限的设备权限，并按需开放权限。
 
@@ -122,7 +122,7 @@ updatedAt: Thu Apr 29 2021 12:27:23 GMT+0800 (CST)
 
 Agora SDK 允许你通过 `degradationPreference` 设置带宽受限时本地视频编码降级偏好，如降低视频帧率保障视频质量，降低视频质量保障视频帧率。自该版本起，`degradationPreference` 新增支持设为 `MAINTAIN_BALANCED`，弱网下会降低视频帧率和视频质量，以在流畅性和视频质量之间取得平衡，适用于流畅性和画质均优先的场景，如一对一通话、一对一教学、多人会议。
 
-**3. 耳返 (Android/iOS)**
+**3. 耳返（Android/iOS）**
 
 为提升耳返的用户体验，该版本新增一个包含 `includeAudioFilter` 参数的 `enableInEarMonitoring` 方法，允许你设置耳返声音经过降噪或美声变声等处理。
 
@@ -138,9 +138,9 @@ Echo 测试指用户测试音频设备（耳麦、扬声器等）和网络连接
 
 该版本进一步扩充了实时音视频互动中的质量数据：
 
-- 在 `RtcStats` 中新增 `txPacketLossRate`: 报告网络对抗前，本地客户端到边缘服务器的丢包率 (%)。
-- 在 `RtcStats` 中新增 `rxPacketLossRate`: 报告网络对抗前，边缘服务器到本地客户端的丢包率 (%)。
-- 在 `RemoteVideoStats` 中新增 `avSyncTimeMs`: 报告实时音视频互动过程中，音频超前视频的时间 (ms)。
+- 在 `RtcStats` 中新增 `txPacketLossRate`: 报告网络对抗前，本地客户端到边缘服务器的丢包率（%)。
+- 在 `RtcStats` 中新增 `rxPacketLossRate`: 报告网络对抗前，边缘服务器到本地客户端的丢包率（%)。
+- 在 `RemoteVideoStats` 中新增 `avSyncTimeMs`: 报告实时音视频互动过程中，音频超前视频的时间（ms)。
 
 ## v3.3.204
 
