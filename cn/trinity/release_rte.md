@@ -3,10 +3,11 @@
 title: 发版说明
 description: 
 platform: All Platforms
-updatedAt: Thu Apr 29 2021 12:27:18 GMT+0800 (CST)
+updatedAt: Thu Apr 29 2021 12:27:23 GMT+0800 (CST)
 ---
 # 发版说明
 本页提供 Agora 下一代 RTC SDK 的发版说明。
+
 ## v3.4.200
 
 该版本于 2021 年 4 月 29 日发布。
@@ -39,7 +40,7 @@ updatedAt: Thu Apr 29 2021 12:27:18 GMT+0800 (CST)
     <td>方法</td>
     <td><code>IMediaPlayer</code></td>
     <td><code>AgoraRtcMediaPlayerProtocol</code><br></td>
-    <td>IMediaPlayer<br></td>
+    <td><code>IMediaPlayer</code><br></td>
   </tr>
   <tr>
     <td>回调</td>
@@ -54,54 +55,42 @@ updatedAt: Thu Apr 29 2021 12:27:18 GMT+0800 (CST)
 
 自该版本起，Agora SDK 与第三方合作，将音视频前处理、后处理、自渲染等功能封装成 Extension 供应用开发者使用。
 
-**3. 删除指定事件句柄 (Android)**
-
-在特定场景下，开发者不想再接收某些事件的回调。该版本新增 `removeHandler` 方法，你可以调用该方法删除不再需要的事件句柄。
-
-**4. 客户端录音**
-
-为在录音时设置录音内容，该版本新增 `startAudioRecording` 方法并废弃同名原方法。通过新方法的 `config` 参数，你可以设置录音音质、内容、采样率等。
-
-**5. 设备权限出错回调 (Android/iOS)**
-
-自该版本起，Agora SDK 新增 `onPermissionError` 回调，及时向用户报告应用无法获取设备权限。用户可以通过 `permissionType` 参数了解应用受限的设备权限，并按需开放权限。
-
-**6. 上行网络信息改变回调**
-
-该版本新增 `onUplinkNetworkInfoUpdated` 回调，报告用户的上行用户信息发生改变，如视频编码的目标码率。
-
-**7. 本地视频首帧发布回调**
-
-该版本新增 `onFirstLocalVideoFramePublished` 回调，报告用户已发布本地视频首帧。
-
-**8. 调节本地播放的指定远端用户音量**
-
-该版本新增 `adjustUserPlaybackSignalVolume` 方法，用以调节本地用户听到的指定远端用户的音量。通话或直播过程中，你可以多次调用该方法，来调节多个远端用户在本地播放的音量，或对某个远端用户在本地播放的音量调节多次。
-
-**9. 设置日志文件**
-
-为保证日志内容的完整性，该版本在 `RtcEngineContext` 中新增 `logConfig` 成员变量，在你初始化 `RtcEngine` 时可用于设置 Agora SDK 输出的日志文件。‘
-
-自该版本起，Agora 不推荐使用 `setLogFile`、`setLogFileSize`、`setLogFilter`、`setLogLevel` 方法设置日志文件。
-
-**10. 加密**
-
-该版本新增 `enableEncryption` 方法用于对频道内媒体流进行国密 SM4 加密。加解密失败时，Agora SDK 会触发 `onEncryptionError` 回调。
-
-**11. 视频双流模式**
+**3. 视频双流模式**
 
 视频双流指高分辨率、高帧率的的视频大流和低分辨率、低帧率的的视频小流。Agora 默认发送、接收视频大流，你也可以调用 `enableDualStreamMode` 开启视频双流模式，以方便弱网用户发送、接收视频小流。
 
 该版本优化视频双流模式，新增两个与原方法同名的 `enableDualStreamMode` 方法：
 
-- 包含 sourceType 参数的同名方法：相比原方法，可以设置视频源的类型，如视频来源于摄像头、屏幕、自采集。
-- 包含 sourceType 和 streamConfig 参数的同名方法：相比只包含 sourceType 参数的同名方法，可以设置视频小流的配置，如视频尺寸、码率、帧率。
+- 包含 `sourceType` 参数的同名方法：相比原方法，可以设置视频源的类型，如视频来源于摄像头、屏幕、自采集。
+- 包含 `sourceType` 和 `streamConfig` 参数的同名方法：相比只包含 `sourceType` 参数的同名方法，可以设置视频小流的配置，如视频尺寸、码率、帧率。
 
-**12. 视频采集旋转 (Windows)**
+**4. 设置日志文件**
+
+为保证日志内容的完整性，该版本在 `RtcEngineContext` 中新增 `logConfig` 成员变量，在你初始化 `RtcEngine` 时可用于设置 Agora SDK 输出的日志文件。‘
+
+自该版本起，Agora 不推荐使用 `setLogFile`、`setLogFileSize`、`setLogFilter`、`setLogLevel` 方法设置日志文件。
+
+**5. 加密**
+
+该版本新增 `enableEncryption` 方法，用于对频道内媒体流进行国密 SM4 加密。加解密失败时，Agora SDK 会触发 `onEncryptionError` 回调。
+
+**6. 删除指定事件句柄 (Android)**
+
+在特定场景下，开发者不想再接收某些事件的回调。该版本新增 `removeHandler` 方法，你可以调用该方法删除不再需要的事件句柄。
+
+**7. 客户端录音**
+
+为在录音时设置录音内容，该版本新增 `startAudioRecording` 方法并废弃同名原方法。通过新方法的 `config` 参数，你可以设置录音音质、内容、采样率等。
+
+**8. 调节本地播放的指定远端用户音量**
+
+该版本新增 `adjustUserPlaybackSignalVolume` 方法，用以调节本地用户听到的指定远端用户的音量。通话或直播过程中，你可以多次调用该方法，来调节多个远端用户在本地播放的音量，或对某个远端用户在本地播放的音量调节多次。
+
+**9. 视频采集旋转 (Windows)**
 
 该版本新增 `setCameraDeviceOrientation` 方法，支持你在用户设备不带重力感应功能时，手动调整采集到的视频画面的旋转角度。
 
-**13. 多设备采集 (Windows)**
+**10. 多设备采集 (Windows)**
 
 为满足用户对使用多摄像头、多屏幕采集发送视频的需求，该版本新增如下方法：
 
@@ -110,6 +99,18 @@ updatedAt: Thu Apr 29 2021 12:27:18 GMT+0800 (CST)
 - `startPrimaryScreenCapture`: 开始采集共享第一个屏幕。
 - `startSecondaryScreenCapture`: 开始采集共享第二个屏幕。
 
+**11. 设备权限出错回调 (Android/iOS)**
+
+自该版本起，Agora SDK 新增 `onPermissionError` 回调，及时向用户报告应用无法获取设备权限。用户可以通过 `permissionType` 参数了解应用受限的设备权限，并按需开放权限。
+
+**12. 上行网络信息改变回调**
+
+该版本新增 `onUplinkNetworkInfoUpdated` 回调，报告用户的上行网络信息发生改变，如视频编码的目标码率。
+
+**13. 本地视频首帧发布回调**
+
+该版本新增 `onFirstLocalVideoFramePublished` 回调，报告用户已发布本地视频首帧。
+
 
 #### 改进
 
@@ -117,21 +118,21 @@ updatedAt: Thu Apr 29 2021 12:27:18 GMT+0800 (CST)
 
 在多频道场景下，为方便开发者了解回调事件对应的 connection ID，该版本新增 `IRtcEngineEventHandlerEx` 类。
 
-**2. 耳返 (Android/iOS)**
+**2. 视频编码降级偏好**
+
+Agora SDK 允许你通过 `degradationPreference` 设置带宽受限时本地视频编码降级偏好，如降低视频帧率保障视频质量，降低视频质量保障视频帧率。自该版本起，`degradationPreference` 新增支持设为 `MAINTAIN_BALANCED`，弱网下会降低视频帧率和视频质量，以在流畅性和视频质量之间取得平衡，适用于流畅性和画质均优先的场景，如一对一通话、一对一教学、多人会议。
+
+**3. 耳返 (Android/iOS)**
 
 为提升耳返的用户体验，该版本新增一个包含 `includeAudioFilter` 参数的 `enableInEarMonitoring` 方法，允许你设置耳返声音经过降噪或美声变声等处理。
 
-**3. 创建数据流**
+**4. 创建数据流**
 
 为了支持歌词同步、课件同步等场景，该版本废弃了原有的 `createDataStream` 方法，并使用新的同名方法替代，用于创建数据流，并设置数据流是否与发布到 Agora 频道内的音频流同步以及接收到的数据是否有序。
 
-**4. Echo 测试**
+**5. Echo 测试**
 
 Echo 测试指用户测试音频设备（耳麦、扬声器等）和网络连接是否正常。该版本新增 `startEchoTest` 方法并废弃同名原方法，你可以通过新方法的 `intervalInSeconds` 参数设置 SDK 返回 Echo 测试结果的时间间隔。
-
-**5. 视频编码降级偏好**
-
-Agora SDK 允许你通过 `degradationPreference` 设置带宽受限时本地视频编码降级偏好，如降低视频帧率保障视频质量，降低视频质量保障视频帧率。自该版本起，`degradationPreference` 新增支持设为 `MAINTAIN_BALANCED`，弱网下会降低视频帧率和视频质量，以在流畅性和视频质量之间取得平衡，适用于流畅性和画质均优先的场景，如一对一通话、一对一教学、多人会议。
 
 **6. 质量透明**
 
@@ -140,7 +141,6 @@ Agora SDK 允许你通过 `degradationPreference` 设置带宽受限时本地视
 - 在 `RtcStats` 中新增 `txPacketLossRate`: 报告网络对抗前，本地客户端到边缘服务器的丢包率 (%)。
 - 在 `RtcStats` 中新增 `rxPacketLossRate`: 报告网络对抗前，边缘服务器到本地客户端的丢包率 (%)。
 - 在 `RemoteVideoStats` 中新增 `avSyncTimeMs`: 报告实时音视频互动过程中，音频超前视频的时间 (ms)。
-
 
 ## v3.3.204
 
