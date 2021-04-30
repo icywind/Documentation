@@ -3,7 +3,7 @@
 title: 发版说明
 description: 
 platform: All Platforms
-updatedAt: Fri Apr 30 2021 07:11:13 GMT+0800 (CST)
+updatedAt: Fri Apr 30 2021 12:21:12 GMT+0800 (CST)
 ---
 # 发版说明
 本页提供 Agora 下一代 RTC SDK 的发版说明。
@@ -116,7 +116,7 @@ updatedAt: Fri Apr 30 2021 07:11:13 GMT+0800 (CST)
 
 **7. 客户端录音**
 
-为在录音时设置录音内容，该版本新增 `startAudioRecording` 方法并废弃同名原方法。通过新方法的 `config` 参数，你可以设置录音音质、内容、采样率等。
+为支持客户端录音功能，该版本新增 `startAudioRecording` 方法。通过该方法的 `config` 参数，你可以设置录音音质、内容、采样率等。
 
 **8. 调节本地播放的指定远端用户音量**
 
@@ -185,7 +185,7 @@ Agora SDK 允许你通过 `degradationPreference` 设置带宽受限时本地视
 
 **5. Echo 测试**
 
-Echo 测试指用户测试音频设备（耳麦、扬声器等）和网络连接是否正常。该版本新增 `startEchoTest` 方法并废弃同名原方法，你可以通过新方法的 `intervalInSeconds` 参数设置 SDK 返回 Echo 测试结果的时间间隔。
+Echo 测试指用户测试音频设备（耳麦、扬声器等）和网络连接是否正常。该版本新增 `startEchoTest` 方法以支持 Echo 测试，你可以通过该方法的 `intervalInSeconds` 参数设置 SDK 返回 Echo 测试结果的时间间隔。
 
 **6. 质量透明**
 
