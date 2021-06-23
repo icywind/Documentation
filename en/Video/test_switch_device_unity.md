@@ -128,8 +128,11 @@ public void loadEngine(string appId)
     audioPlaybackDeviceManager.SetAudioPlaybackDevice(deviceIdA);
     // Enables the audio volume callback.
     mRtcEngine.EnableAudioVolumeIndication(300, 3, true);
-    // Starts the audio playback device test.
-    audioPlaybackDeviceManager.StartAudioPlaybackDeviceTest(300);
+    
+    // Starts the audio playback device test.  NOTE *** You should provide a test audio file ******
+    string MyAudioFilePath = Application.streamingAssetsPath + "/mytestaudio.mp3";
+    audioPlaybackDeviceManager.StartAudioPlaybackDeviceTest(MyAudioFilePath);
+    
     // Stops the audio playback device test.
     audioPlaybackDeviceManager.StopAudioPlaybackDeviceTest();
     // Releases AudioPlaybackDeviceManager instance.
